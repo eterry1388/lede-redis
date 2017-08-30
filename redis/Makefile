@@ -30,10 +30,6 @@ define Package/redis/description
 	strings, hashes, lists, sets, sorted sets, bitmaps and hyperloglogs.
 endef
 
-define Package/redis/conffiles
-/etc/redis.conf
-endef
-
 MAKE_VARS = \
         CFLAGS="$(TARGET_CFLAGS) $(EXTRA_CFLAGS) $(TARGET_CPPFLAGS) $(EXTRA_CPPFLAGS)" \
         CXXFLAGS="$(TARGET_CXXFLAGS) $(EXTRA_CXXFLAGS) $(TARGET_CPPFLAGS) $(EXTRA_CPPFLAGS)" \
@@ -44,13 +40,13 @@ MAKE_FLAGS = \
         $(TARGET_CONFIGURE_OPTS) \
         ARCH=""
 
-define Package/redis/conffiles
-/etc/redis.conf
-endef
+#define Package/redis/conffiles
+#/etc/redis.conf
+#endef
 
 define Build/Prepare
 	$(call Build/Prepare/Default)
-   $(call PatchDir,$(PKG_BUILD_DIR),./fix_page_purge.patch)
+	$(call PatchDir,$(PKG_BUILD_DIR),./010-redis.patch)
 endef
 
 define Build/Compile
@@ -69,10 +65,10 @@ define Package/redis/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/redis-server $(1)/usr/bin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/redis-check-aof $(1)/usr/bin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/redis-benchmark $(1)/usr/bin/
-	$(INSTALL_DIR) $(1)/etc/init.d
-    $(INSTALL_BIN) ./files/redis.init $(1)/etc/init.d/redis
-    $(INSTALL_DIR) $(1)/etc
-#    $(INSTALL_DATA) $(PKG_BUILD_DIR)/redis.conf $(1)/etc
+#	$(INSTALL_DIR) $(1)/etc/init.d
+#	$(INSTALL_BIN) ./files/redis.init $(1)/etc/init.d/redis
+#	$(INSTALL_DIR) $(1)/etc
+#	$(INSTALL_DATA) $(PKG_BUILD_DIR)/redis.conf $(1)/etc
 endef
 
 $(eval $(call BuildPackage,redis))

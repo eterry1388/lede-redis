@@ -37,6 +37,8 @@ https://lede-project.org/docs/guide-developer/use-patches-with-buildsystem
 
 ```bash
 # first run yes, but we don't need it, it is in lede-insomnia
+rm build_dir/target-arm_cortex-a9+vfpv3_musl-1.1.16_eabi/redis* -rf
+rm feeds/redis* -rf
 ./scripts/feeds update -a
 ./scripts/feeds install -a
 
@@ -54,7 +56,6 @@ quilt edit src/Makefile
 
 # build the package
 cd /build/source
-make package/feeds/redis/redis/update V=s
 make package/feeds/redis/redis/{clean,compile} package/index V=s
 
 
