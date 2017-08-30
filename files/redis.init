@@ -11,12 +11,12 @@ REDIS_CONFIG="/etc/redis.conf"
 REDIS_PID="/var/run/redis.pid"
 REDIS_DATA="/var/lib/redis"
 
-start() {
+start_service() {
 	[ -d $REDIS_DATA ] || mkdir -p $REDIS_DATA
 	service_start $REDIS_BIN "$REDIS_CONFIG"
 }
 
-stop() {
+stop_service() {
 	if [ ! -f $REDIS_PID ] ; then
 		echo 'Not running!'
 	else
