@@ -40,9 +40,9 @@ MAKE_FLAGS = \
         $(TARGET_CONFIGURE_OPTS) \
         ARCH=""
 
-#define Package/redis/conffiles
-#/etc/redis.conf
-#endef
+define Package/redis/conffiles
+/etc/redis.conf
+endef
 
 define Build/Prepare
 	$(call Build/Prepare/Default)
