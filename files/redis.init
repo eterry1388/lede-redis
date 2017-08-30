@@ -13,7 +13,7 @@ REDIS_DATA="/var/lib/redis"
 
 start_service() {
 	[ -d $REDIS_DATA ] || mkdir -p $REDIS_DATA
-	service_start $REDIS_BIN "$REDIS_CONFIG"
+	$REDIS_BIN "$REDIS_CONFIG"
 }
 
 stop_service() {
@@ -33,7 +33,7 @@ stop_service() {
 			sleep 1
 		done
 		echo 'done.'
-		service_stop $REDIS_BIN
+		$REDIS_BIN
 		[ -x /proc/$PID ] && kill -9 $PID
 	fi
 }
