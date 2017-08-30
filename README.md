@@ -52,13 +52,16 @@ quilt new 010-redis.patch
 quilt edit ./deps/jemalloc/src/pages.c 
 quilt edit src/Makefile 
 
+# build the package
+cd /build/source
+make package/feeds/redis/redis/update V=s
+make package/feeds/redis/redis/{clean,compile} package/index V=s
+
+
 # if you edit
 # (add in the plus from https://github.com/pdf/openwrt-14.07-x86_64-packages/tree/master/net/redis )
 quilt series
 quilt refresh
-cd /build/source
-make package/feeds/redis/redis/update V=s
-make package/feeds/redis/redis/{clean,compile} package/index V=s
 
 #quilt push redis.patch
 # artifacts/patch-files/deps/jemalloc/src
@@ -68,21 +71,6 @@ make package/feeds/redis/redis/{clean,compile} package/index V=s
 #quilt diff
 #quilt refresh
 ```
-
-## Shoud be in it as well
-
-```
-define Package/redis/conffiles
-/etc/redis.conf
-endef
-
-
-$(INSTALL_DIR) $(1)/etc/init.d
-$(INSTALL_BIN) ./files/redis.init $(1)/etc/init.d/redis
-$(INSTALL_DIR) $(1)/etc
-$(INSTALL_DATA) $(PKG_BUILD_DIR)/redis.conf $(1)/etc
-```
-
 
 [//]: #@corifeus-footer
 
