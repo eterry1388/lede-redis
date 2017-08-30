@@ -1,9 +1,12 @@
 #!/bin/sh /etc/rc.common
+# Copyright (C) 2008-2012 OpenWrt.org
 
-START=98
-STOP=81
-
-SERVICE_USE_PID=1
+START=72
+STOP=72
+USE_PROCD=1
+PROG=/usr/bin/redis-server
+NAME=redis4
+PIDCOUNT=0
 
 REDIS_BIN="/usr/bin/redis-server"
 REDIS_CLI="/usr/bin/redis-cli"
