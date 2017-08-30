@@ -1,0 +1,41 @@
+{
+    "name": "p3x-lede-redis",
+    "corifeus": {
+        "prefix": "p3x-",
+        "type": "p3x",
+        "cdn": true,
+        "nodejs": "v8.4.0",
+        "icon": "fa fa-database",
+        "code": "tempo"
+    },
+    "version": "1.0.1-2",
+    "description": "The LEDE Stable Redis package",
+    "main": "src/index.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "test": "grunt",
+        "coverage": "istanbul cover node_modules/mocha/bin/_mocha --report clover -- -R spec test/mocha/**/*.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://git.patrikx3.com/lede-redis.git"
+    },
+    "keywords": [
+        "lede",
+        "stable",
+        "redis",
+        "latest"
+    ],
+    "author": "Patrik Laszlo <alabard@gmail.com>",
+    "license": "MIT",
+    "devDependencies": {
+        "corifeus-builder": "^1.7.788-112"
+    },
+    "engines": {
+        "node": ">=7.8.0"
+    },
+    "homepage": "https://pages.corifeus.com/lede-redis",
+    "dependencies": {}
+}

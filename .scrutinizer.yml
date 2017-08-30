@@ -1,0 +1,27 @@
+checks:
+  javascript: true
+filter:
+  excluded_paths:
+    - test/*
+    - node_modules/*
+    - build/*
+    - docs/*
+
+build:
+  cache:
+    disabled: true
+
+  dependencies:
+    before:
+      - export LATEST=$(nvm ls-remote | tail -1)
+      - nvm install $LATEST
+#      - nvm use $LATEST
+      - npm install -g grunt-cli
+
+  tests:
+    override:
+      -
+        command: 'grunt'
+        coverage:
+          file: 'build/coverage/clover.xml'
+          format: 'clover'
