@@ -53,6 +53,7 @@ quilt edit ./deps/jemalloc/src/pages.c
 quilt edit src/Makefile 
 
 # if you edit
+# (add in the plus from https://github.com/pdf/openwrt-14.07-x86_64-packages/tree/master/net/redis )
 quilt series
 quilt refresh
 cd /build/source
