@@ -1,12 +1,14 @@
 #!/bin/sh /etc/rc.common
-# Copyright (C) 2008-2012 OpenWrt.org
+# Copyright (C) 2010-2011 OpenWrt.org
 
-START=72
-STOP=72
-USE_PROCD=1
-PROG=/usr/bin/redis-server
-NAME=redis4
-PIDCOUNT=0
+START=95
+STOP=10
+
+SERVICE_DAEMONIZE=1
+SERVICE_WRITE_PID=1
+SERVICE_STOP_TIME=9
+PROG='/usr/bin/redis-server'
+
 
 REDIS_BIN="/usr/bin/redis-server"
 REDIS_CLI="/usr/bin/redis-cli"
@@ -14,34 +16,11 @@ REDIS_CONFIG="/etc/redis.conf"
 REDIS_PID="/var/run/redis.pid"
 REDIS_DATA="/var/lib/redis"
 
-boot() {
-   sleep 30
-   start_service
-}
-
-start_service() {
+start() {
 	[ -d $REDIS_DATA ] || mkdir -p $REDIS_DATA
-	$REDIS_BIN "$REDIS_CONFIG"
+	service_start $PROG
 }
 
-stop_service() {
-	if [ ! -f $REDIS_PID ] ; then
-		echo 'Not running!'
-	else
-		PID=$(cat $REDIS_PID)
-		timeout=10
-		$REDIS_CLI shutdown
-		echo -n 'Waiting for redis shutdown...'
-		while [ -x /proc/$PID ] ; do
-			echo -n '.'
-			timeout=$((timeout - 1))
-			if [ $timeout -eq 0 ] ; then
-				break
-			fi
-			sleep 1
-		done
-		echo 'done.'
-		$REDIS_BIN
-		[ -x /proc/$PID ] && kill -9 $PID
-	fi
+stop() {
+	service_stop "$PROG"
 }
