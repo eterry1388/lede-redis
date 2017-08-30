@@ -31,7 +31,7 @@ define Package/redis/description
 endef
 
 define Package/redis/conffiles
-	/etc/redis.conf
+/etc/redis.conf
 endef
 
 MAKE_VARS = \
@@ -45,16 +45,17 @@ MAKE_FLAGS = \
         ARCH=""
 
 
-define Build/Prepare
-	$(call Build/Prepare/Default)
-#	$(call PatchDir,$(PKG_BUILD_DIR),./redis.patch)
-endef
+# this doesn't need anymore, redis 4 works with ARM
+#define Build/Prepare
+#	$(call Build/Prepare/Default)
+#   $(call PatchDir,$(PKG_BUILD_DIR),./fix_page_purge.patch)
+#endef
 
 define Build/Compile
 	$(MAKE) -C "$(PKG_BUILD_DIR)/deps/hiredis" static $(MAKE_FLAGS)  CFLAGS="$(TARGET_CPPFLAGS) "  LDFLAGS="$(TARGET_LDFLAGS)"
 	$(MAKE) -C "$(PKG_BUILD_DIR)/deps/linenoise" $(MAKE_FLAGS)  CFLAGS="$(TARGET_CPPFLAGS) "  LDFLAGS="$(TARGET_LDFLAGS)"
 	$(MAKE) -C "$(PKG_BUILD_DIR)/deps/lua" posix $(MAKE_FLAGS)  CFLAGS="$(TARGET_CPPFLAGS) "  LDFLAGS="$(TARGET_LDFLAGS)"  AR="${AR} ru"
-#	$(MAKE) -C "$(PKG_BUILD_DIR)/deps/geohash-int"  $(MAKE_FLAGS)  CFLAGS="$(TARGET_CPPFLAGS) "  LDFLAGS="$(TARGET_LDFLAGS)"
+	$(MAKE) -C "$(PKG_BUILD_DIR)/deps/geohash-int"  $(MAKE_FLAGS)  CFLAGS="$(TARGET_CPPFLAGS) "  LDFLAGS="$(TARGET_LDFLAGS)"
 	cd "$(PKG_BUILD_DIR)/deps/jemalloc"; $(CONFIGURE_VARS)  ./configure --host=x86_64 --with-lg-quantum=3 --with-jemalloc-prefix=je_ --enable-cc-silence
 	cd "$(PKG_BUILD_DIR)/deps/jemalloc"; $(MAKE_VARS) $(MAKE) $(MAKE_FLAGS)  CFLAGS="$(TARGET_CPPFLAGS) "  LDFLAGS="$(TARGET_LDFLAGS)"   lib/libjemalloc.a
 	$(MAKE) -C "$(PKG_BUILD_DIR)/src/" $(MAKE_FLAGS) CFLAGS="$(TARGET_CPPFLAGS)"  LDFLAGS="$(TARGET_LDFLAGS)"
@@ -66,10 +67,13 @@ define Package/redis/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/redis-server $(1)/usr/bin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/redis-check-aof $(1)/usr/bin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/redis-benchmark $(1)/usr/bin/
+
+
 	$(INSTALL_DIR) $(1)/etc/init.d
-	$(INSTALL_BIN) ./files/redis.init $(1)/etc/init.d/redis
-	$(INSTALL_DIR) $(1)/etc
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/redis.conf $(1)/etc
+    $(INSTALL_BIN) ./files/redis.init $(1)/etc/init.d/redis
+    $(INSTALL_DIR) $(1)/etc
+    $(INSTALL_DATA) $(PKG_BUILD_DIR)/redis.conf $(1)/etc
 endef
 
 $(eval $(call BuildPackage,redis))
+
