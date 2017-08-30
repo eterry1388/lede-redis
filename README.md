@@ -24,14 +24,13 @@ I think though it works anywhere even MIPS.
 
 # Patch 4.0.1 or building as a package
 
-This is not installed on one of the repo's, might add it in later: https://stackoverflow.com/questions/38631251/issue-with-redis-install-geohash-int-geohash-o  .
+This is not installed on one of the repo's, might add it in later, but I think it is not needed, like in ```3.2```.
 
 The location:
 ```packages/feeds/redis/redis```
 
 #### Help for creating patching with packages
 https://lede-project.org/docs/guide-developer/use-patches-with-buildsystem   
-  
   
 ## Build a package and add patches  
 
