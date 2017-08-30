@@ -40,8 +40,8 @@ index 83a167f..d4d82ce 100644
 +	unzeroed = false;
  	return (unzeroed);
  }
- 
--- 
+
+--
 2.7.4
 
 
@@ -64,26 +64,26 @@ index fdbe36a..5752fab 100644
  	echo PREV_FINAL_LDFLAGS=$(FINAL_LDFLAGS) >> .make-settings
 -	-(cd ../deps && $(MAKE) $(DEPENDENCY_TARGETS))
 +	#-(cd ../deps && $(MAKE) $(DEPENDENCY_TARGETS))
- 
+
  .PHONY: persist-settings
- 
+
 @@ -211,12 +211,13 @@ $(REDIS_CHECK_AOF_NAME): $(REDIS_CHECK_AOF_OBJ)
  	$(REDIS_CC) -c $<
- 
+
  clean:
 -	rm -rf $(REDIS_SERVER_NAME) $(REDIS_SENTINEL_NAME) $(REDIS_CLI_NAME) $(REDIS_BENCHMARK_NAME) $(REDIS_CHECK_RDB_NAME) $(REDIS_CHECK_AOF_NAME) *.o *.gcda *.gcno *.gcov redis.info lcov-html
 +	$(info "prevent dist  clean")
 +	# rm -rf $(REDIS_SERVER_NAME) $(REDIS_SENTINEL_NAME) $(REDIS_CLI_NAME) $(REDIS_BENCHMARK_NAME) $(REDIS_CHECK_RDB_NAME) $(REDIS_CHECK_AOF_NAME) *.o *.gcda *.gcno *.gcov redis.info lcov-html
- 
+
  .PHONY: clean
- 
+
  distclean: clean
 -	-(cd ../deps && $(MAKE) distclean)
 +	# -(cd ../deps && $(MAKE) distclean)
  	-(rm -f .make-*)
- 
+
  .PHONY: distclean
--- 
+--
 2.7.4
 
 
@@ -101,15 +101,15 @@ index 9fd5362..146e36e 100644
 --- a/src/config.h
 +++ b/src/config.h
 @@ -63,7 +63,7 @@
- 
+
  /* Test for backtrace() */
  #if defined(__APPLE__) || (defined(__linux__) && defined(__GLIBC__))
 -#define HAVE_BACKTRACE 1
 +/*#define HAVE_BACKTRACE 0*/
  #endif
- 
+
  /* MSG_NOSIGNAL. */
--- 
+--
 2.7.4
 
 
@@ -128,16 +128,16 @@ index 146e36e..f39edeb 100644
 +++ b/src/config.h
 @@ -62,8 +62,8 @@
  #endif
- 
+
  /* Test for backtrace() */
 -#if defined(__APPLE__) || (defined(__linux__) && defined(__GLIBC__))
 -/*#define HAVE_BACKTRACE 0*/
 +#if (defined(__APPLE__) || defined(__linux__) && defined(__UCLIBC__))
 +#define HAVE_BACKTRACE 1
  #endif
- 
+
  /* MSG_NOSIGNAL. */
--- 
+--
 2.7.4
 
 
@@ -156,7 +156,7 @@ index 5752fab..9aa5636 100644
 +++ b/src/Makefile
 @@ -264,10 +264,11 @@ src/help.h:
  	@../utils/generate-command-help.rb > help.h
- 
+
  install: all
 -	@mkdir -p $(INSTALL_BIN)
 -	$(REDIS_INSTALL) $(REDIS_SERVER_NAME) $(INSTALL_BIN)
@@ -173,6 +173,5 @@ index 5752fab..9aa5636 100644
 +	# $(REDIS_INSTALL) $(REDIS_CHECK_RDB_NAME) $(INSTALL_BIN)
 +	# $(REDIS_INSTALL) $(REDIS_CHECK_AOF_NAME) $(INSTALL_BIN)
 +	# @ln -sf $(REDIS_SERVER_NAME) $(INSTALL_BIN)/$(REDIS_SENTINEL_NAME)
--- 
+--
 2.7.4
-
