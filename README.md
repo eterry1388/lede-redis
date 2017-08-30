@@ -10,13 +10,14 @@
 
 # It is very important so that Makefile is a TAB instead 8 spaces!   
 
-
 Working on it,
 
 This is based on:
 https://github.com/chrisber/openwrt-ipkg-redis
 
 It will be all of my [LEDE-INSOMNIA](https://pages.corifeus.com/lede-insomnia) (renamed from LEDE-NODE) named firmware and packages.
+
+# This is WORK, not done
 
 ## Usage
 Add follow line to feeds.conf or feeds.conf.default
