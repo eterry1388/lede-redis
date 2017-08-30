@@ -8,21 +8,29 @@
 
 # LEDE-REDIS 4.0.1
 
-# It is very important so that Makefile is a TAB instead 8 spaces!   
+Please, where you can find it in  [LEDE-INSOMNIA](https://pages.corifeus.com/lede-insomnia), of course it includes ```init.d``` service as well.
+
+```bash
+/etc/init.d/redis stop|start
+```
+
+## Bulding
+
+### It is very important so that Makefile is a TAB instead 8 spaces!   
 
 This is based on:
 https://github.com/chrisber/openwrt-ipkg-redis and https://github.com/pdf/openwrt-14.07-x86_64-packages/tree/master/net/redis .
 
 It will be all of my [LEDE-INSOMNIA](https://pages.corifeus.com/lede-insomnia) (renamed from LEDE-NODE) named firmware and packages.
 
-# CPU type
+### CPU type
 Right now, I only tested on ARM (Linksys WRT1200ACS, Linksys 3200ACM),since it is 4.0.1
 
 https://redis.io/topics/ARM
 
 I think though it works anywhere even MIPS.
 
-# Patch 4.0.1 or building as a package
+### Patch 4.0.1 or building as a package
 
 This is not installed on one of the repo's, might add it in later, but I think it is not needed, like in ```3.2```.
 
@@ -32,7 +40,7 @@ The location:
 #### Help for creating patching with packages
 https://lede-project.org/docs/guide-developer/use-patches-with-buildsystem   
   
-## Build a package and add patches  
+### Build a package and add patches  
 
 ```bash
 # first run yes, but we don't need it, it is in lede-insomnia
@@ -49,7 +57,7 @@ rm feeds/redis* -rf
 cd /build/source
 make package/feeds/redis/redis/{clean,compile} package/index V=s
 ```
-# To create the patch
+### To create the patch
 
 ```bash
 make package/feeds/redis/redis/{clean,prepare} V=s QUILT=1
@@ -60,7 +68,7 @@ quilt edit ./deps/jemalloc/src/pages.c
 quilt edit src/Makefile 
 ```
 
-# To edit a patch
+### To edit a patch
 
 ```bash
 quilt series
