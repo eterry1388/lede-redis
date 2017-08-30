@@ -33,7 +33,7 @@ The location:
 https://lede-project.org/docs/guide-developer/use-patches-with-buildsystem   
   
   
-## Create a package and add patches  
+## Build a package and add patches  
 
 ```bash
 # first run yes, but we don't need it, it is in lede-insomnia
@@ -46,31 +46,31 @@ rm feeds/redis* -rf
 ./scripts/feeds install redis
 ./scripts/feeds update -a -p redis
 
-# to create the patch
+# build the package
+cd /build/source
+make package/feeds/redis/redis/{clean,compile} package/index V=s
+```
+# To create the patch
+
+```bash
 make package/feeds/redis/redis/{clean,prepare} V=s QUILT=1
 cd build_dir/target-arm_cortex-a9+vfpv3_musl-1.1.16_eabi/redis-4.0.1/
 quilt push -a
 quilt new 010-redis.patch
 quilt edit ./deps/jemalloc/src/pages.c 
 quilt edit src/Makefile 
+```
 
-# build the package
-cd /build/source
-make package/feeds/redis/redis/{clean,compile} package/index V=s
+# To edit a patch
 
-
-# if you edit
-# (add in the plus from https://github.com/pdf/openwrt-14.07-x86_64-packages/tree/master/net/redis )
+```bash
 quilt series
 quilt refresh
-
-#quilt push redis.patch
-# artifacts/patch-files/deps/jemalloc/src
-#quilt edit ./deps/jemalloc/src/pages.c 
-## artifacts/patch-files/src/Makefile
-#quilt edit src/Makefile 
-#quilt diff
-#quilt refresh
+quilt push 010-redis.patch
+quilt edit ./deps/jemalloc/src/pages.c 
+quilt edit src/Makefile 
+quilt diff
+quilt refresh
 ```
 
 [//]: #@corifeus-footer
