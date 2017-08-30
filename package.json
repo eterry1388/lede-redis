@@ -8,7 +8,7 @@
         "icon": "fa fa-database",
         "code": "tempo"
     },
-    "version": "1.0.3-14",
+    "version": "4.0.3-14",
     "description": "The LEDE Stable Redis package",
     "main": "src/index.js",
     "directories": {
