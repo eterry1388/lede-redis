@@ -67,8 +67,6 @@ define Package/redis/install
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/redis-server $(1)/usr/bin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/redis-check-aof $(1)/usr/bin/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/src/redis-benchmark $(1)/usr/bin/
-
-
 	$(INSTALL_DIR) $(1)/etc/init.d
     $(INSTALL_BIN) ./files/redis.init $(1)/etc/init.d/redis
     $(INSTALL_DIR) $(1)/etc

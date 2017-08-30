@@ -1,9 +1,0 @@
-define Package/redis/conffiles
-/etc/redis.conf
-endef
-
-
-$(INSTALL_DIR) $(1)/etc/init.d
-$(INSTALL_BIN) ./files/redis.init $(1)/etc/init.d/redis
-$(INSTALL_DIR) $(1)/etc
-$(INSTALL_DATA) $(PKG_BUILD_DIR)/redis.conf $(1)/etc
