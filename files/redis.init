@@ -14,6 +14,11 @@ REDIS_CONFIG="/etc/redis.conf"
 REDIS_PID="/var/run/redis.pid"
 REDIS_DATA="/var/lib/redis"
 
+boot() {
+   sleep 30
+   start_service
+}
+
 start_service() {
 	[ -d $REDIS_DATA ] || mkdir -p $REDIS_DATA
 	$REDIS_BIN "$REDIS_CONFIG"
