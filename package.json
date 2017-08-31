@@ -8,7 +8,7 @@
         "icon": "fa fa-database",
         "code": "tempo"
     },
-    "version": "4.0.3-14",
+    "version": "4.0.4-19",
     "description": "The LEDE Stable Redis package",
     "main": "src/index.js",
     "directories": {
@@ -20,7 +20,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://git.patrikx3.com/lede-redis.git"
+        "url": "https://github.com/patrikx3/lede-redis.git"
     },
     "keywords": [
         "lede",
@@ -31,7 +31,7 @@
     "author": "Patrik Laszlo <alabard@gmail.com>",
     "license": "MIT",
     "devDependencies": {
-        "corifeus-builder": "^1.7.795-120"
+        "corifeus-builder": "^1.7.797-123"
     },
     "engines": {
         "node": ">=7.8.0"
