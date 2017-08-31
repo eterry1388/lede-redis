@@ -8,6 +8,10 @@
 
 # LEDE-REDIS 4.0.1
 
+Your bilt package:  
+https://cdn.corifeus.com/lede/17.01.2/packages/arm_cortex-a9_vfpv3/redis/  
+  
+
 Please, where you can find it in  [LEDE-INSOMNIA](https://pages.corifeus.com/lede-insomnia), of course it includes ```init.d``` service as well.
 
 ```bash
