@@ -31,7 +31,7 @@ https://nodejs.org/en/download/package-manager/
 
 # LEDE-REDIS 4.0.1
 
-Your bilt package:  
+Your built package:  
 https://cdn.corifeus.com/lede/17.01.2/packages/arm_cortex-a9_vfpv3/redis/  
   
 
@@ -61,8 +61,12 @@ I think though it works anywhere even MIPS.
 
 This is not installed on one of the repo's, might add it in later, but I think it is not needed, like in ```3.2```.
 
-The location:
-```packages/feeds/redis/redis```
+The location:  
+  
+```text
+packages/feeds/redis/redis
+```
+
 
 #### Help for creating patching with packages
 https://lede-project.org/docs/guide-developer/use-patches-with-buildsystem   
@@ -111,7 +115,7 @@ quilt refresh
 
 ---
 
-[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.4-19
+[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.5-27
 
 [Corifeus](http://www.corifeus.com) by [Patrik Laszlo](http://patrikx3.com)
 
