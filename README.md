@@ -78,6 +78,8 @@ https://lede-project.org/docs/guide-developer/use-patches-with-buildsystem
   
 ### Build a package and add patches  
 
+#### Prepare
+
 ```bash
 # first run yes, but we don't need it, it is in lede-insomnia
 rm build_dir/target-arm_cortex-a9+vfpv3_musl-1.1.16_eabi/redis* -rf
@@ -93,8 +95,6 @@ rm feeds/redis* -rf
 
 # build the package
 cd /build/source
-make package/feeds/redis/redis/{clean,prepare,compile} package/index
- V=s
 ```
 ### To create the patch
 
@@ -128,6 +128,13 @@ quilt edit src/Makefile
 quilt edit src/networking.c 
 quilt diff
 quilt refresh
+```
+
+### Build a package
+
+```bash
+make package/feeds/redis/redis/{clean,prepare,compile} package/index
+ V=s
 ```
 
 [//]: #@corifeus-footer
