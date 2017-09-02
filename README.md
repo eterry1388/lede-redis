@@ -33,7 +33,12 @@ https://nodejs.org/en/download/package-manager/
 
 Your built package:  
 https://cdn.corifeus.com/lede/17.01.2/packages/arm_cortex-a9_vfpv3/redis/  
+
+## Hacking!!!
+For now, I disabled atomic instructions, so all routers use ```pthreads``` so it will work always.
   
+
+## The router service
 
 Please, where you can find it in  [LEDE-INSOMNIA](https://pages.corifeus.com/lede-insomnia), of course it includes ```init.d``` service as well.
 
@@ -87,7 +92,7 @@ rm feeds/redis* -rf
 
 # build the package
 cd /build/source
-make package/feeds/redis/redis/{clean,compile} package/index V=s
+make package/feeds/redis/redis/{clean,prepare} package/index V=s
 ```
 ### To create the patch
 
@@ -99,16 +104,21 @@ quilt push -a
 quilt new 010-redis.patch
 quilt edit ./deps/jemalloc/src/pages.c 
 quilt edit src/Makefile 
+quilt edit src/networking.c 
 ```
 
 ### To edit a patch
 
 ```bash
+make package/feeds/redis/redis/{clean,prepare} V=s QUILT=1
+cd /build_dir/target-arm_cortex-a9+vfpv3_musl-1.1.16_eabi/redis-4.0.1/
+cd /build/source/build_dir/target-mipsel_24kc_musl-1.1.16/redis-4.0.1
 quilt series
 quilt refresh
 quilt push 010-redis.patch
 quilt edit ./deps/jemalloc/src/pages.c 
 quilt edit src/Makefile 
+quilt edit src/networking.c 
 quilt diff
 quilt refresh
 ```
