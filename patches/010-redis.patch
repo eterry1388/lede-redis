@@ -1,5 +1,7 @@
---- a/deps/jemalloc/src/pages.c
-+++ b/deps/jemalloc/src/pages.c
+Index: redis-4.0.1/deps/jemalloc/src/pages.c
+===================================================================
+--- redis-4.0.1.orig/deps/jemalloc/src/pages.c
++++ redis-4.0.1/deps/jemalloc/src/pages.c
 @@ -146,28 +146,7 @@ bool
  pages_purge(void *addr, size_t size)
  {
@@ -30,8 +32,10 @@
  	return (unzeroed);
  }
  
---- a/src/Makefile
-+++ b/src/Makefile
+Index: redis-4.0.1/src/Makefile
+===================================================================
+--- redis-4.0.1.orig/src/Makefile
++++ redis-4.0.1/src/Makefile
 @@ -177,7 +177,6 @@ persist-settings: distclean
  	echo REDIS_LDFLAGS=$(REDIS_LDFLAGS) >> .make-settings
  	echo PREV_FINAL_CFLAGS=$(FINAL_CFLAGS) >> .make-settings
@@ -65,3 +69,18 @@
 -	$(REDIS_INSTALL) $(REDIS_CHECK_RDB_NAME) $(INSTALL_BIN)
 -	$(REDIS_INSTALL) $(REDIS_CHECK_AOF_NAME) $(INSTALL_BIN)
 -	@ln -sf $(REDIS_SERVER_NAME) $(INSTALL_BIN)/$(REDIS_SENTINEL_NAME)
+Index: redis-4.0.1/src/networking.c
+===================================================================
+--- redis-4.0.1.orig/src/networking.c
++++ redis-4.0.1/src/networking.c
+@@ -33,6 +33,10 @@
+ #include <math.h>
+ #include <ctype.h>
+ 
++#ifndef __ATOMIC_SEQ_CST 
++#define NETDATA_NO_ATOMIC_INSTRUCTIONS 1 
++#endif 
++
+ static void setProtocolError(const char *errstr, client *c, int pos);
+ 
+ /* Return the size consumed from the allocator, for the specified SDS string,
