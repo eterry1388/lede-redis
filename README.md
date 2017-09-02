@@ -92,7 +92,8 @@ rm feeds/redis* -rf
 
 # build the package
 cd /build/source
-make package/feeds/redis/redis/{clean,prepare} package/index V=s
+#make package/feeds/redis/redis/{clean,prepare} package/index
+ V=s
 ```
 ### To create the patch
 
@@ -104,7 +105,10 @@ quilt push -a
 quilt new 010-redis.patch
 quilt edit ./deps/jemalloc/src/pages.c 
 quilt edit src/Makefile 
-quilt edit src/networking.c 
+quilt edit src/atomicvar.h
+quilt series
+quilt diff
+quilt refresh
 ```
 
 ### To edit a patch
