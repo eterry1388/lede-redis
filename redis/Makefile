@@ -10,9 +10,6 @@ PKG_SOURCE_URL:=http://download.redis.io/releases/
 
 PKG_INSTALL:=1
 
-PKG_FIXUP:=autoreconf
-TARGET_CFLAGS+= -DNETDATA_NO_ATOMIC_INSTRUCTIONS=1
-
 include $(INCLUDE_DIR)/package.mk
 
 MAKE_FLAGS+= \
