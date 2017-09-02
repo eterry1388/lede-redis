@@ -82,6 +82,7 @@ https://lede-project.org/docs/guide-developer/use-patches-with-buildsystem
 # first run yes, but we don't need it, it is in lede-insomnia
 rm build_dir/target-arm_cortex-a9+vfpv3_musl-1.1.16_eabi/redis* -rf
 rm build_dir/target-mipsel_24kc_musl-1.1.16/redis-4.0.1
+rm build_dir/target-mips_24kc_musl-1.1.16/redis-4.0.1/
 rm feeds/redis* -rf
 ./scripts/feeds update -a
 ./scripts/feeds install -a
@@ -92,7 +93,7 @@ rm feeds/redis* -rf
 
 # build the package
 cd /build/source
-#make package/feeds/redis/redis/{clean,prepare} package/index
+make package/feeds/redis/redis/{clean,prepare,compile} package/index
  V=s
 ```
 ### To create the patch
@@ -101,6 +102,7 @@ cd /build/source
 make package/feeds/redis/redis/{clean,prepare} V=s QUILT=1
 cd /build_dir/target-arm_cortex-a9+vfpv3_musl-1.1.16_eabi/redis-4.0.1/
 cd /build/source/build_dir/target-mipsel_24kc_musl-1.1.16/redis-4.0.1
+cd /build/source/build_dir/target-mips_24kc_musl-1.1.16/redis-4.0.1/
 quilt push -a
 quilt new 010-redis.patch
 quilt edit ./deps/jemalloc/src/pages.c 
@@ -117,6 +119,7 @@ quilt refresh
 make package/feeds/redis/redis/{clean,prepare} V=s QUILT=1
 cd /build_dir/target-arm_cortex-a9+vfpv3_musl-1.1.16_eabi/redis-4.0.1/
 cd /build/source/build_dir/target-mipsel_24kc_musl-1.1.16/redis-4.0.1
+cd /build/source/build_dir/target-mips_24kc_musl-1.1.16/redis-4.0.1/
 quilt series
 quilt refresh
 quilt push 010-redis.patch
