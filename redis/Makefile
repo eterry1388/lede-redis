@@ -20,7 +20,7 @@ define Package/redis
   SECTION:=net
   CATEGORY:=Network
   TITLE:=Advanced key-value cache and store
-  DEPENDS:=+libpthread
+  DEPENDS:=+libpthread +libatomic
   URL:=http://redis.io
 endef
 

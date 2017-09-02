@@ -99,7 +99,6 @@ quilt push -a
 quilt new 010-redis.patch
 quilt edit ./deps/jemalloc/src/pages.c 
 quilt edit src/Makefile 
-quilt edit src/networking.c 
 ```
 
 ### To edit a patch
@@ -110,7 +109,6 @@ quilt refresh
 quilt push 010-redis.patch
 quilt edit ./deps/jemalloc/src/pages.c 
 quilt edit src/Makefile 
-quilt edit src/networking.c 
 quilt diff
 quilt refresh
 ```
