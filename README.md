@@ -107,6 +107,10 @@ quilt push -a
 quilt new 010-redis.patch
 quilt edit ./deps/jemalloc/src/pages.c 
 quilt edit src/Makefile 
+
+# trying if it works with the CONFIG_EDAC_ATOMIC_SCRUB define
+# if not working it will be pthreads only, at least it works every router
+# but it would be cool if CONFIG_EDAC_ATOMIC_SCRUB is the bomb 
 quilt edit src/atomicvar.h
 quilt series
 quilt diff
@@ -125,7 +129,7 @@ quilt refresh
 quilt push 010-redis.patch
 quilt edit ./deps/jemalloc/src/pages.c 
 quilt edit src/Makefile 
-quilt edit src/networking.c 
+quilt edit src/atomicvar.h
 quilt diff
 quilt refresh
 ```
