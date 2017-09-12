@@ -31,12 +31,14 @@ https://nodejs.org/en/download/package-manager/
 
 # LEDE-REDIS 4.0.1
 
-Your built package:  
-https://cdn.corifeus.com/lede/17.01.2/packages/arm_cortex-a9_vfpv3/redis/  
-
-## Hacking!!!
-For now, I disabled atomic instructions, so all routers use ```pthreads``` so it will work always.
+Your built package:
   
+* Like Linksys WRT ARM ```atomic instructions```
+  * https://cdn.corifeus.com/lede/17.01.2/packages/arm_cortex-a9_vfpv3/redis/  
+
+* Like D-Link RAMIPS ```pthreads```
+  * https://cdn.corifeus.com/lede/17.01.2/packages/mipsel_24kc/redis/
+
 
 ## The router service
 
@@ -63,8 +65,6 @@ https://redis.io/topics/ARM
 I think though it works anywhere even MIPS.
 
 ### Patch 4.0.1 or building as a package
-
-This is not installed on one of the repo's, might add it in later, but I think it is not needed, like in ```3.2```.
 
 The location:  
   
@@ -107,10 +107,7 @@ quilt push -a
 quilt new 010-redis.patch
 quilt edit ./deps/jemalloc/src/pages.c 
 quilt edit src/Makefile 
-
-# trying if it works with the CONFIG_EDAC_ATOMIC_SCRUB define
-# if not working it will be pthreads only, at least it works every router
-# but it would be cool if CONFIG_EDAC_ATOMIC_SCRUB is the bomb 
+# if work with CONFIG_EDAC_ATOMIC_SCRUB if it is atomic instructions or threads 
 quilt edit src/atomicvar.h
 quilt series
 quilt diff
@@ -145,7 +142,7 @@ make package/feeds/redis/redis/{clean,prepare,compile} package/index
 
 ---
 
-[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.5-27
+[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.8-59
 
 [Corifeus](http://www.corifeus.com) by [Patrik Laszlo](http://patrikx3.com)
 
