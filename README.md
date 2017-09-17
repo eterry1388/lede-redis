@@ -142,7 +142,7 @@ make package/feeds/redis/redis/{clean,prepare,compile} package/index
 
 ---
 
-[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.9-60
+[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.11-68
 
 [Corifeus](http://www.corifeus.com) by [Patrik Laszlo](http://patrikx3.com)
 
