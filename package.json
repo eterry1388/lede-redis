@@ -20,7 +20,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/patrikx3/lede-redis.git"
+        "url": "https://github.com/patrikx3.com/lede-redis"
     },
     "keywords": [
         "lede",

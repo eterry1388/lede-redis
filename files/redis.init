@@ -7,14 +7,15 @@ STOP=10
 SERVICE_DAEMONIZE=1
 SERVICE_WRITE_PID=1
 SERVICE_STOP_TIME=9
-PROG='/usr/bin/redis-server'
 
 
-REDIS_BIN="/usr/bin/redis-server"
+REDIS_BIN="/usr/bin/redis-server "
 REDIS_CLI="/usr/bin/redis-cli"
 REDIS_CONFIG="/etc/redis.conf"
 REDIS_PID="/var/run/redis.pid"
 REDIS_DATA="/var/lib/redis"
+
+PROG="/usr/bin/redis-server --dir $REDIS_DATA"
 
 start() {
 	[ -d $REDIS_DATA ] || mkdir -p $REDIS_DATA
