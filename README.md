@@ -96,6 +96,13 @@ rm feeds/redis* -rf
 # build the package
 cd /build/source
 ```
+
+### Build a package
+
+```bash
+make package/feeds/redis/redis/{clean,prepare,compile} package/index V=s
+```
+
 ### To create the patch
 
 ```bash
@@ -131,18 +138,12 @@ quilt diff
 quilt refresh
 ```
 
-### Build a package
-
-```bash
-make package/feeds/redis/redis/{clean,prepare,compile} package/index
- V=s
-```
 
 [//]: #@corifeus-footer
 
 ---
 
-[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.11-68
+[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.14-74
 
 [Corifeus](http://www.corifeus.com) by [Patrik Laszlo](http://patrikx3.com)
 
