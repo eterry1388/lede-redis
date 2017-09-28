@@ -16,7 +16,7 @@ This is an open source project. Just code.
    
 ### Built on Node 
 ``` 
-v8.5.0
+v8.6.0
 ```   
    
 The ```async``` and ```await``` keywords are required.
@@ -29,7 +29,7 @@ https://nodejs.org/en/download/package-manager/
                         
 [//]: #@corifeus-header:end
 
-# LEDE-REDIS 4.0.1
+# LEDE-REDIS 4.0.2
 
 Your built package:
   
@@ -58,13 +58,13 @@ https://github.com/chrisber/openwrt-ipkg-redis and https://github.com/pdf/openwr
 It will be all of my [LEDE-INSOMNIA](https://pages.corifeus.com/lede-insomnia) (renamed from LEDE-NODE) named firmware and packages.
 
 ### CPU type
-Right now, I only tested on ARM (Linksys WRT1200ACS, Linksys 3200ACM),since it is 4.0.1
+Right now, I only tested on ARM (Linksys WRT1200ACS, Linksys 3200ACM),since it is 4.0.2
 
 https://redis.io/topics/ARM
 
 I think though it works anywhere even MIPS.
 
-### Patch 4.0.1 or building as a package
+### Patch 4.0.2 or building as a package
 
 The location:  
   
@@ -83,8 +83,8 @@ https://lede-project.org/docs/guide-developer/use-patches-with-buildsystem
 ```bash
 # first run yes, but we don't need it, it is in lede-insomnia
 rm build_dir/target-arm_cortex-a9+vfpv3_musl-1.1.16_eabi/redis* -rf
-rm build_dir/target-mipsel_24kc_musl-1.1.16/redis-4.0.1
-rm build_dir/target-mips_24kc_musl-1.1.16/redis-4.0.1/
+rm build_dir/target-mipsel_24kc_musl-1.1.16/redis-4.0.2
+rm build_dir/target-mips_24kc_musl-1.1.16/redis-4.0.2/
 rm feeds/redis* -rf
 ./scripts/feeds update -a
 ./scripts/feeds install -a
@@ -107,9 +107,9 @@ make package/feeds/redis/redis/{clean,prepare,compile} package/index V=s
 
 ```bash
 make package/feeds/redis/redis/{clean,prepare} V=s QUILT=1
-cd /build_dir/target-arm_cortex-a9+vfpv3_musl-1.1.16_eabi/redis-4.0.1/
-cd /build/source/build_dir/target-mipsel_24kc_musl-1.1.16/redis-4.0.1
-cd /build/source/build_dir/target-mips_24kc_musl-1.1.16/redis-4.0.1/
+cd /build_dir/target-arm_cortex-a9+vfpv3_musl-1.1.16_eabi/redis-4.0.2/
+cd /build/source/build_dir/target-mipsel_24kc_musl-1.1.16/redis-4.0.2
+cd /build/source/build_dir/target-mips_24kc_musl-1.1.16/redis-4.0.2/
 quilt push -a
 quilt new 010-redis.patch
 quilt edit ./deps/jemalloc/src/pages.c 
@@ -125,9 +125,9 @@ quilt refresh
 
 ```bash
 make package/feeds/redis/redis/{clean,prepare} V=s QUILT=1
-cd /build_dir/target-arm_cortex-a9+vfpv3_musl-1.1.16_eabi/redis-4.0.1/
-cd /build/source/build_dir/target-mipsel_24kc_musl-1.1.16/redis-4.0.1
-cd /build/source/build_dir/target-mips_24kc_musl-1.1.16/redis-4.0.1/
+cd /build_dir/target-arm_cortex-a9+vfpv3_musl-1.1.16_eabi/redis-4.0.2/
+cd /build/source/build_dir/target-mipsel_24kc_musl-1.1.16/redis-4.0.2
+cd /build/source/build_dir/target-mips_24kc_musl-1.1.16/redis-4.0.2/
 quilt series
 quilt refresh
 quilt push 010-redis.patch
@@ -143,7 +143,7 @@ quilt refresh
 
 ---
 
-[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.21-82
+[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.22-85
 
 [Corifeus](http://www.corifeus.com) by [Patrik Laszlo](http://patrikx3.com)
 
