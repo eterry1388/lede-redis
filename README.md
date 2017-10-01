@@ -143,7 +143,7 @@ quilt refresh
 
 ---
 
-[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.22-85
+[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.23-86
 
 [Corifeus](http://www.corifeus.com) by [Patrik Laszlo](http://patrikx3.com)
 
