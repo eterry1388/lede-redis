@@ -34,10 +34,10 @@ https://nodejs.org/en/download/package-manager/
 Your built package:
   
 * Like Linksys WRT ARM ```atomic instructions```
-  * https://cdn.corifeus.com/lede/17.01.2/packages/arm_cortex-a9_vfpv3/redis/  
+  * https://cdn.corifeus.com/lede/17.01.3/packages/arm_cortex-a9_vfpv3/redis/  
 
 * Like D-Link RAMIPS ```pthreads```
-  * https://cdn.corifeus.com/lede/17.01.2/packages/mipsel_24kc/redis/
+  * https://cdn.corifeus.com/lede/17.01.3/packages/mipsel_24kc/redis/
 
 
 ## The router service
@@ -143,7 +143,7 @@ quilt refresh
 
 ---
 
-[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.23-86
+[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.24-87
 
 [Corifeus](http://www.corifeus.com) by [Patrik Laszlo](http://patrikx3.com)
 
