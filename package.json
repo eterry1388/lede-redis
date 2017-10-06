@@ -31,7 +31,7 @@
     "author": "Patrik Laszlo <alabard@gmail.com>",
     "license": "MIT",
     "devDependencies": {
-        "corifeus-builder": "^1.7.854-153"
+        "corifeus-builder": "^1.7.855-154"
     },
     "engines": {
         "node": ">=7.8.0"
