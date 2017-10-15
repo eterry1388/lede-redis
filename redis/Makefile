@@ -7,7 +7,9 @@ PKG_RELEASE:=1
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://download.redis.io/releases/
 #PKG_MD5SUM:=ea92053cbb6f4eb8a4347dbaac7d7dff
-
+PKG_MAINTAINER:=Patrik Laszlo <alabard@gmail.com>
+PKG_LICENSE:=MIT
+PKG_LICENSE_FILES:=LICENSE
 PKG_INSTALL:=1
 
 include $(INCLUDE_DIR)/package.mk

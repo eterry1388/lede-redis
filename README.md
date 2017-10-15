@@ -33,9 +33,13 @@ https://nodejs.org/en/download/package-manager/
 
 ## The feed
 
+http://cdn.corifeus.com/lede/17.01.3/packages/arm_cortex-a9_vfpv3/redis
+
 ```text
 src/gz reboot_redis http://cdn.corifeus.com/lede/17.01.3/packages/arm_cortex-a9_vfpv3/redis
 ```
+
+http://cdn.corifeus.com/lede/17.01.3/packages/mipsel_24kc/redis
 
 ```text
 src/gz reboot_redis http://cdn.corifeus.com/lede/17.01.3/packages/mipsel_24kc/redis
