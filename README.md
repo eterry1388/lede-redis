@@ -16,7 +16,7 @@ This is an open source project. Just code.
    
 ### Built on Node 
 ``` 
-v8.6.0
+v8.7.0
 ```   
    
 The ```async``` and ```await``` keywords are required.
@@ -58,11 +58,7 @@ https://github.com/chrisber/openwrt-ipkg-redis and https://github.com/pdf/openwr
 It will be all of my [LEDE-INSOMNIA](https://pages.corifeus.com/lede-insomnia) (renamed from LEDE-NODE) named firmware and packages.
 
 ### CPU type
-Right now, I only tested on ARM (Linksys WRT1200ACS, Linksys 3200ACM),since it is 4.0.2
-
-https://redis.io/topics/ARM
-
-I think though it works anywhere even MIPS.
+Right now, I only tested on ARM (Linksys WRT1200ACS, Linksys 3200ACM) and D-Link RAMIPS since it is 4.0.2
 
 ### Patch 4.0.2 or building as a package
 
@@ -107,7 +103,7 @@ make package/feeds/redis/redis/{clean,prepare,compile} package/index V=s
 
 ```bash
 make package/feeds/redis/redis/{clean,prepare} V=s QUILT=1
-cd /build_dir/target-arm_cortex-a9+vfpv3_musl-1.1.16_eabi/redis-4.0.2/
+cd /build/source/build_dir/target-arm_cortex-a9+vfpv3_musl-1.1.16_eabi/redis-4.0.2/
 cd /build/source/build_dir/target-mipsel_24kc_musl-1.1.16/redis-4.0.2
 cd /build/source/build_dir/target-mips_24kc_musl-1.1.16/redis-4.0.2/
 quilt push -a
@@ -125,7 +121,6 @@ quilt refresh
 
 ```bash
 make package/feeds/redis/redis/{clean,prepare} V=s QUILT=1
-cd /build_dir/target-arm_cortex-a9+vfpv3_musl-1.1.16_eabi/redis-4.0.2/
 cd /build/source/build_dir/target-mipsel_24kc_musl-1.1.16/redis-4.0.2
 cd /build/source/build_dir/target-mips_24kc_musl-1.1.16/redis-4.0.2/
 quilt series
@@ -143,7 +138,7 @@ quilt refresh
 
 ---
 
-[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.31-103 
+[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.33-107 
 
 [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) 
  
