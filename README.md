@@ -31,6 +31,19 @@ https://nodejs.org/en/download/package-manager/
 
 # LEDE-REDIS 4.0.2
 
+## The feed
+
+```text
+src/gz reboot_redis http://cdn.corifeus.com/lede/17.01.3/packages/arm_cortex-a9_vfpv3/redis
+```
+
+```text
+src/gz reboot_redis http://cdn.corifeus.com/lede/17.01.3/packages/mipsel_24kc/redis
+```
+
+
+## The Info
+
 Your built package:
   
 * Like Linksys WRT ARM ```atomic instructions```
