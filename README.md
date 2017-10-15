@@ -55,7 +55,7 @@ Please, where you can find it in  [LEDE-INSOMNIA](https://pages.corifeus.com/led
 This is based on:
 https://github.com/chrisber/openwrt-ipkg-redis and https://github.com/pdf/openwrt-14.07-x86_64-packages/tree/master/net/redis .
 
-It will be all of my [LEDE-INSOMNIA](https://pages.corifeus.com/lede-insomnia) (renamed from LEDE-NODE) named firmware and packages.
+It will be in all of my [LEDE-INSOMNIA](https://pages.corifeus.com/lede-insomnia).
 
 ### CPU type
 Right now, I only tested on ARM (Linksys WRT1200ACS, Linksys 3200ACM) and D-Link RAMIPS since it is 4.0.2
