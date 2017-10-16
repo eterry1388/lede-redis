@@ -2,34 +2,13 @@
 
   [![Build Status](https://travis-ci.org/patrikx3/lede-redis.svg?branch=master)](https://travis-ci.org/patrikx3/lede-redis)  [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/patrikx3/lede-redis/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/patrikx3/lede-redis/?branch=master)  [![Code Coverage](https://scrutinizer-ci.com/g/patrikx3/lede-redis/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/patrikx3/lede-redis/?branch=master) 
 
+# The LEDE Stable Redis 4 package 
+
 ---
 
  
-# The LEDE Stable Redis package
-
-This is an open source project. Just code.
-
-### Node Version Requirement 
-``` 
->=7.8.0 
-```  
-   
-### Built on Node 
-``` 
-v8.7.0
-```   
-   
-The ```async``` and ```await``` keywords are required.
-
-Install NodeJs:    
-https://nodejs.org/en/download/package-manager/    
-
-# Description  
-
                         
 [//]: #@corifeus-header:end
-
-# LEDE-REDIS 4.0.2
 
 ## The feed
 
@@ -180,7 +159,7 @@ quilt refresh
 
 ---
 
-[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.33-107 
+[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.35-121 
 
 [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) 
  

@@ -4,7 +4,7 @@ module.exports = (grunt) => {
     const loader = new builder.loader(grunt);
     loader.js({
         replacer: {
-            type: 'p3x',
+            type: 'lede',
             npmio: false,
         },
     });
