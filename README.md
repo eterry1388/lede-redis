@@ -4,8 +4,6 @@
 
 # The LEDE Stable Redis 4 package 
 
----
-
  
                         
 [//]: #@corifeus-header:end
@@ -159,7 +157,7 @@ quilt refresh
 
 ---
 
-[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.35-121 
+[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.36-122 
 
 [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) 
  
