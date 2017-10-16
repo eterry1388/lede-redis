@@ -45,6 +45,16 @@ http://cdn.corifeus.com/lede/17.01.3/packages/mipsel_24kc/redis
 src/gz reboot_redis http://cdn.corifeus.com/lede/17.01.3/packages/mipsel_24kc/redis
 ```
 
+## Your own build
+
+```bash
+cp feeds.conf.default feeds.conf
+echo 'src-git redis https://github.com/patrikx3/lede-redis.git' >> feeds.conf
+./scripts/feeds update -a
+./scripts/feeds install -a
+./scripts/feeds update redis
+./scripts/feeds install -a -p  redis
+```
 
 ## The Info
 
@@ -120,9 +130,16 @@ make package/feeds/redis/redis/{clean,prepare,compile} package/index V=s
 
 ```bash
 make package/feeds/redis/redis/{clean,prepare} V=s QUILT=1
+
+# either
 cd /build/source/build_dir/target-arm_cortex-a9+vfpv3_musl-1.1.16_eabi/redis-4.0.2/
+
+# or
 cd /build/source/build_dir/target-mipsel_24kc_musl-1.1.16/redis-4.0.2
+
+# or
 cd /build/source/build_dir/target-mips_24kc_musl-1.1.16/redis-4.0.2/
+
 quilt push -a
 quilt new 010-redis.patch
 quilt edit ./deps/jemalloc/src/pages.c 
@@ -138,8 +155,16 @@ quilt refresh
 
 ```bash
 make package/feeds/redis/redis/{clean,prepare} V=s QUILT=1
+
+# either
+cd /build/source/build_dir/target-arm_cortex-a9+vfpv3_musl-1.1.16_eabi/redis-4.0.2/
+
+# or
 cd /build/source/build_dir/target-mipsel_24kc_musl-1.1.16/redis-4.0.2
+
+# or
 cd /build/source/build_dir/target-mips_24kc_musl-1.1.16/redis-4.0.2/
+
 quilt series
 quilt refresh
 quilt push 010-redis.patch
