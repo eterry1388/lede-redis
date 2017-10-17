@@ -31,6 +31,17 @@ echo 'src-git redis https://github.com/patrikx3/lede-redis.git' >> feeds.conf
 ./scripts/feeds install -a
 ./scripts/feeds update redis
 ./scripts/feeds install -a -p  redis
+
+# create a .config
+make menuconfig
+# might need as well
+make kernel_menuconfig
+
+# either
+make package/feeds/redis/redis/{clean,prepare,compile} package/index V=s
+
+# or
+make V=s
 ```
 
 ## The Info
@@ -52,9 +63,7 @@ Please, where you can find it in  [LEDE-INSOMNIA](https://pages.corifeus.com/led
 /etc/init.d/redis stop|start
 ```
 
-## Bulding
-
-### It is very important so that Makefile is a TAB instead 8 spaces!   
+# PS
 
 This is based on:
 https://github.com/chrisber/openwrt-ipkg-redis and https://github.com/pdf/openwrt-14.07-x86_64-packages/tree/master/net/redis .
@@ -63,94 +72,6 @@ It will be in all of my [LEDE-INSOMNIA](https://pages.corifeus.com/lede-insomnia
 
 ### CPU type
 Right now, I only tested on ARM (Linksys WRT1200ACS, Linksys 3200ACM) and D-Link RAMIPS since it is 4.0.2
-
-### Patch 4.0.2 or building as a package
-
-The location:  
-  
-```text
-packages/feeds/redis/redis
-```
-
-
-#### Help for creating patching with packages
-https://lede-project.org/docs/guide-developer/use-patches-with-buildsystem   
-  
-### Build a package and add patches  
-
-#### Prepare
-
-```bash
-# first run yes, but we don't need it, it is in lede-insomnia
-rm build_dir/target-arm_cortex-a9+vfpv3_musl-1.1.16_eabi/redis* -rf
-rm build_dir/target-mipsel_24kc_musl-1.1.16/redis-4.0.2
-rm build_dir/target-mips_24kc_musl-1.1.16/redis-4.0.2/
-rm feeds/redis* -rf
-./scripts/feeds update -a
-./scripts/feeds install -a
-
-# once you already updated the all
-./scripts/feeds install redis
-./scripts/feeds update -a -p redis
-
-# build the package
-cd /build/source
-```
-
-### Build a package
-
-```bash
-make package/feeds/redis/redis/{clean,prepare,compile} package/index V=s
-```
-
-### To create the patch
-
-```bash
-make package/feeds/redis/redis/{clean,prepare} V=s QUILT=1
-
-# either
-cd /build/source/build_dir/target-arm_cortex-a9+vfpv3_musl-1.1.16_eabi/redis-4.0.2/
-
-# or
-cd /build/source/build_dir/target-mipsel_24kc_musl-1.1.16/redis-4.0.2
-
-# or
-cd /build/source/build_dir/target-mips_24kc_musl-1.1.16/redis-4.0.2/
-
-quilt push -a
-quilt new 010-redis.patch
-quilt edit ./deps/jemalloc/src/pages.c 
-quilt edit src/Makefile 
-# if work with CONFIG_EDAC_ATOMIC_SCRUB if it is atomic instructions or threads 
-quilt edit src/atomicvar.h
-quilt series
-quilt diff
-quilt refresh
-```
-
-### To edit a patch
-
-```bash
-make package/feeds/redis/redis/{clean,prepare} V=s QUILT=1
-
-# either
-cd /build/source/build_dir/target-arm_cortex-a9+vfpv3_musl-1.1.16_eabi/redis-4.0.2/
-
-# or
-cd /build/source/build_dir/target-mipsel_24kc_musl-1.1.16/redis-4.0.2
-
-# or
-cd /build/source/build_dir/target-mips_24kc_musl-1.1.16/redis-4.0.2/
-
-quilt series
-quilt refresh
-quilt push 010-redis.patch
-quilt edit ./deps/jemalloc/src/pages.c 
-quilt edit src/Makefile 
-quilt edit src/atomicvar.h
-quilt diff
-quilt refresh
-```
 
 
 [//]: #@corifeus-footer
