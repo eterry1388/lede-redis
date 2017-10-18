@@ -22,6 +22,23 @@ http://cdn.corifeus.com/lede/17.01.3/packages/mipsel_24kc/redis
 src/gz reboot_redis http://cdn.corifeus.com/lede/17.01.3/packages/mipsel_24kc/redis
 ```
 
+## Built package:
+  
+* Like Linksys WRT ARM ```atomic instructions```
+  * https://cdn.corifeus.com/lede/17.01.3/packages/arm_cortex-a9_vfpv3/redis/  
+
+* Like D-Link RAMIPS ```pthreads```
+  * https://cdn.corifeus.com/lede/17.01.3/packages/mipsel_24kc/redis/
+
+
+## The router service
+
+Please, where you can find it in  [LEDE-INSOMNIA](https://pages.corifeus.com/lede-insomnia), of course it includes ```init.d``` service as well.
+
+```bash
+/etc/init.d/redis stop|start
+```
+
 ## Your own build
 
 ```bash
@@ -44,24 +61,6 @@ make package/feeds/redis/redis/{clean,prepare,compile} package/index V=s
 make V=s
 ```
 
-## The Info
-
-Your built package:
-  
-* Like Linksys WRT ARM ```atomic instructions```
-  * https://cdn.corifeus.com/lede/17.01.3/packages/arm_cortex-a9_vfpv3/redis/  
-
-* Like D-Link RAMIPS ```pthreads```
-  * https://cdn.corifeus.com/lede/17.01.3/packages/mipsel_24kc/redis/
-
-
-## The router service
-
-Please, where you can find it in  [LEDE-INSOMNIA](https://pages.corifeus.com/lede-insomnia), of course it includes ```init.d``` service as well.
-
-```bash
-/etc/init.d/redis stop|start
-```
 
 # PS
 
