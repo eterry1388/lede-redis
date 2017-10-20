@@ -8,7 +8,7 @@
         "icon": "fa fa-database",
         "code": "Tempo"
     },
-    "version": "4.0.36-122",
+    "version": "4.0.37-125",
     "description": "The LEDE Stable Redis 4 package ",
     "main": "src/index.js",
     "directories": {
@@ -31,7 +31,7 @@
     "author": "Patrik Laszlo <alabard@gmail.com>",
     "license": "MIT",
     "devDependencies": {
-        "corifeus-builder": "^1.7.924-186"
+        "corifeus-builder": "^1.7.925-187"
     },
     "engines": {
         "node": ">=7.8.0"

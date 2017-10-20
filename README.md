@@ -77,7 +77,7 @@ Right now, I only tested on ARM (Linksys WRT1200ACS, Linksys 3200ACM) and D-Link
 
 ---
 
-[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.36-122 
+[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.37-125 
 
 [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) 
  
