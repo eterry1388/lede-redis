@@ -10,25 +10,25 @@
 
 ## The feed
 
-http://cdn.corifeus.com/lede/17.01.3/packages/arm_cortex-a9_vfpv3/redis
+http://cdn.corifeus.com/lede/17.01.4/packages/arm_cortex-a9_vfpv3/redis
 
 ```text
-src/gz reboot_redis http://cdn.corifeus.com/lede/17.01.3/packages/arm_cortex-a9_vfpv3/redis
+src/gz reboot_redis http://cdn.corifeus.com/lede/17.01.4/packages/arm_cortex-a9_vfpv3/redis
 ```
 
-http://cdn.corifeus.com/lede/17.01.3/packages/mipsel_24kc/redis
+http://cdn.corifeus.com/lede/17.01.4/packages/mipsel_24kc/redis
 
 ```text
-src/gz reboot_redis http://cdn.corifeus.com/lede/17.01.3/packages/mipsel_24kc/redis
+src/gz reboot_redis http://cdn.corifeus.com/lede/17.01.4/packages/mipsel_24kc/redis
 ```
 
 ## Built package:
   
 * Like Linksys WRT ARM ```atomic instructions```
-  * https://cdn.corifeus.com/lede/17.01.3/packages/arm_cortex-a9_vfpv3/redis/  
+  * https://cdn.corifeus.com/lede/17.01.4/packages/arm_cortex-a9_vfpv3/redis/  
 
 * Like D-Link RAMIPS ```pthreads```
-  * https://cdn.corifeus.com/lede/17.01.3/packages/mipsel_24kc/redis/
+  * https://cdn.corifeus.com/lede/17.01.4/packages/mipsel_24kc/redis/
 
 
 ## The router service
@@ -77,7 +77,7 @@ Right now, I only tested on ARM (Linksys WRT1200ACS, Linksys 3200ACM) and D-Link
 
 ---
 
-[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.38-126 
+[**P3X-LEDE-REDIS**](https://pages.corifeus.com/lede-redis) Build v4.0.39-127 
 
 [![Like Corifeus @ Facebook](https://img.shields.io/badge/LIKE-Corifeus-3b5998.svg)](https://www.facebook.com/corifeus.software) 
  
