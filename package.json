@@ -4,11 +4,11 @@
         "prefix": "p3x-",
         "type": "lede",
         "cdn": true,
-        "nodejs": "v9.1.0",
+        "nodejs": "v9.2.0",
         "icon": "fa fa-database",
         "code": "Tempo"
     },
-    "version": "4.0.62-152",
+    "version": "4.0.77-156",
     "description": "The LEDE Stable Redis 4 package ",
     "main": "src/index.js",
     "directories": {
@@ -31,7 +31,7 @@
     "author": "Patrik Laszlo <alabard@gmail.com>",
     "license": "MIT",
     "devDependencies": {
-        "corifeus-builder": "^1.7.996-222"
+        "corifeus-builder": "^1.7.1032-227"
     },
     "engines": {
         "node": ">=8.9.0"
