@@ -31,7 +31,7 @@ src/gz reboot_redis http://cdn.corifeus.com/lede/17.01.4/packages/mipsel_24kc/re
 http://cdn.corifeus.com/lede/17.01.4/packages/arm_cortex-a53_neon-vfpv4/redis/
 
 ```text
-src/gz reboot_redis http://cdn.corifeus.com/lede/17.01.4/packages/arm_cortex-a53_neon-vfpv4/redis
+src/gz reboot_redis http://cdn.corifeus.com/lede/17.01.4/packages/arm_cortex-a53_neon-vfpv4/redis/
 ```
 
 
@@ -44,7 +44,7 @@ src/gz reboot_redis http://cdn.corifeus.com/lede/17.01.4/packages/arm_cortex-a53
   * https://cdn.corifeus.com/lede/17.01.4/packages/mipsel_24kc/redis/
 
 * RPI-3 
-  * http://cdn.corifeus.com/lede/17.01.4/targets/brcm2708/bcm2710/packages/
+  * http://cdn.corifeus.com/lede/17.01.4/packages/arm_cortex-a53_neon-vfpv4/redis//
 
 ## The router service
 
