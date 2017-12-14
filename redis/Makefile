@@ -1,7 +1,7 @@
 include $(TOPDIR)/rules.mk
 
 PKG_NAME:=redis
-PKG_VERSION:=4.0.2
+PKG_VERSION:=4.0.6
 PKG_RELEASE:=1
 
 # make package/feeds/redis/redis/download V=s
