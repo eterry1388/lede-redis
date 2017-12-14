@@ -18,7 +18,7 @@ REDIS_DATA="/var/lib/redis"
 PROG="/usr/bin/redis-server --dir $REDIS_DATA"
 
 start() {
-	[ -d $REDIS_DATA ] || mkdir -p $REDIS_DATA
+	[ -d "$REDIS_DATA" ] || mkdir -p $REDIS_DATA
 	service_start $PROG
 }
 
