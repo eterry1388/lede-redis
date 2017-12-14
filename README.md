@@ -87,7 +87,7 @@ https://github.com/chrisber/openwrt-ipkg-redis and https://github.com/pdf/openwr
 It will be in all of my [LEDE-INSOMNIA](https://pages.corifeus.com/lede-insomnia).
 
 ### CPU type
-Right now, I only tested on ARM (Linksys WRT1200ACS, Linksys 3200ACM) and D-Link RAMIPS since it is 4.0.2
+Right now, I only tested on ARM (Linksys WRT1200ACS, Linksys 3200ACM) and D-Link RAMIPS since it is 4.0.6
 
 
 [//]: #@corifeus-footer
