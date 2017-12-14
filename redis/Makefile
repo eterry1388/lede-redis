@@ -4,12 +4,16 @@ PKG_NAME:=redis
 PKG_VERSION:=4.0.6
 PKG_RELEASE:=1
 
+# rm ./dl/redis*
+# rm ./build_dir/*/redis*
+# ./scripts/feeds update redis
+# ./scripts/feeds install -a -p redis
 # make package/feeds/redis/redis/download V=s
 # make package/feeds/redis/redis/check FIXUP=1 V=s
 # cat package/feeds/redis/redis/Makefile | less
 PKG_SOURCE:=$(PKG_NAME)-$(PKG_VERSION).tar.gz
 PKG_SOURCE_URL:=http://download.redis.io/releases/
-PKG_HASH:=b1a0915dbc91b979d06df1977fe594c3fa9b189f1f3d38743a2948c9f7634813
+#PKG_HASH:=b1a0915dbc91b979d06df1977fe594c3fa9b189f1f3d38743a2948c9f7634813
 PKG_MAINTAINER:=Patrik Laszlo <alabard@gmail.com>
 PKG_LICENSE:=MIT
 PKG_LICENSE_FILES:=LICENSE
