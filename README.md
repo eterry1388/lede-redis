@@ -10,6 +10,8 @@
 
 REDIS is in ```/var/lib/redis```, it is better if you are in an ```ext-root```. For MariaDB, I created a ```/opt/var/lib/mysql``` symlink, but for Redis I haven't added, so please add ```ext-root```, so there is space.
 
+There was a typo in the ```/etc/init.d/redis```, but now is fixed. 
+
 ## The feed
 
 ### Tested on Linksys WRT
