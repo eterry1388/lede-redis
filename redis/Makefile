@@ -4,11 +4,11 @@ PKG_NAME:=redis
 PKG_VERSION:=4.0.6
 PKG_RELEASE:=1
 
-# rm ./bin/packages/*/redis* -rf
-# rm ./build_dir/*/redis*
-# rm ./dl/redis* -rf
-# rm ./feeds/redis* -rf
-# rm ./staging_dir/packages/*/redis*
+# rm -rf ./bin/packages/*/redis* -rf
+# rm -rf ./build_dir/*/redis*
+# rm -rf ./dl/redis* -rf
+# rm -rf ./feeds/redis*
+# rm -rf ./staging_dir/packages/*/redis*
 # ./scripts/feeds update redis
 # ./scripts/feeds install -a -p redis
 # make package/feeds/redis/redis/download V=s
