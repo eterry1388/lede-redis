@@ -23,5 +23,5 @@ start() {
 }
 
 stop() {
-	service_stop "$PROG"
+	service_stop $PROG
 }
