@@ -8,7 +8,7 @@
                         
 [//]: #@corifeus-header:end
 
-REDIS is in ```/var/lib/redis```, it is better if you are in an ```ext-root```. For MariaDB, I created a ```/opt/var/lib/mysql``` symlink, but for Redis I haven't added, so please add ```ext-root```, so there is space.
+Given, that ```/var/lib``` is usually in the ROM, so the ```REDIS``` data is in actually in ```/opt/var/lib/redis``` and ```/var/lib/redis``` is a symlink to ```/opt/var/lib/redis```. I think it is good if you use ```ext-root``` or an ```SD-CARD``` based backend storage or something like.
 
 There was a typo in the ```/etc/init.d/redis```, but now is fixed. 
 
